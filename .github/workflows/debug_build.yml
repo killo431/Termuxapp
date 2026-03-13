@@ -6,6 +6,7 @@ on:
       - master
       - android-10
       - claude/run-build-workflows
+      - claude/fix-installation-issue-arm64
   pull_request:
     branches:
       - master
@@ -25,6 +26,8 @@ jobs:
         distribution: 'temurin'
     - name: Build
       run: |
+        # This builds APKs for all supported architectures including ARM64 (arm64-v8a)
+        # as configured in app/build.gradle ABI filters
         ./gradlew assembleDebug
     - name: Store generated APK file
       uses: actions/upload-artifact@v4
