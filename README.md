@@ -36,6 +36,17 @@ Signature keys of all offered builds are different. Before you switch the
 installation source, you will have to uninstall the Termux application and
 all currently installed plugins.
 
+### Supported Architectures
+
+Termux supports the following CPU architectures:
+- **ARM 64-bit** (arm64-v8a / aarch64) - Modern 64-bit ARM devices
+- **ARM 32-bit** (armeabi-v7a) - Older 32-bit ARM devices
+- **x86 64-bit** (x86_64) - 64-bit x86 devices
+- **x86 32-bit** (x86 / i686) - 32-bit x86 devices
+
+The app automatically detects and uses the appropriate architecture-specific
+binaries and bootstrap packages for your device.
+
 ## Terminal resources
 
 - [XTerm control sequences](http://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
