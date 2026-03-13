@@ -12,10 +12,10 @@ android {
         implementation "io.noties.markwon:linkify:$markwonVersion"
         implementation "io.noties.markwon:recycler:$markwonVersion"
 
-        // Do not increment version higher than 2.5 or there
-        // will be runtime exceptions on android < 8
-        // due to missing classes like java.nio.file.Path.
-        implementation "commons-io:commons-io:2.5"
+        // Only commons-io APIs that use java.nio.file.Path (e.g. FileUtils)
+        // are unavailable on android < 8 (API < 26). The IOUtils methods
+        // used here (toString, closeQuietly) are stream-based and safe on all API levels.
+        implementation "commons-io:commons-io:2.14.0"
 
         implementation project(":terminal-view")
     }
